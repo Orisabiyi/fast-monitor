@@ -5,7 +5,7 @@ import userRoutes from './src/routes/user.routes.ts'
 
 dotenv.config()
 
-const fastify = Fastify({
+export const fastify = Fastify({
   logger: true
 })
 
