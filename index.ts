@@ -2,6 +2,7 @@ import Fastify from 'fastify'
 import dotenv from 'dotenv'
 import dbConnecter from './src/utils/dbConnecter.ts'
 import userRoutes from './src/routes/user.routes.ts'
+import fastifyHash from './src/utils/fastifyHash.ts'
 
 dotenv.config()
 
@@ -10,7 +11,10 @@ export const fastify = Fastify({
 })
 
 
+// fastify plugins
 fastify.register(dbConnecter)
+fastify.register(fastifyHash)
+
 fastify.register(userRoutes)
 
 fastify.listen({ port: 3000 }, function (err, address) {
